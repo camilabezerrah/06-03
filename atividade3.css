@@ -1,134 +1,60 @@
 body {
-    font-family: Arial;
-    background-color: rgb(230, 229, 228);
+    font-family: Arial, sans-serif;
     margin: 0;
-}
-
-header {
-    padding: 20px;
-    text-align: center;
-}
-
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 50px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
-
-nav {
-    border: 1px solid green;
-    border-radius: 20px;
-    position: relative;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
     padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-nav ul li {
-    position: relative;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-}
-
-nav ul li a:hover {
-    color: green;
-}
-
-nav ul li .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid green;
-    border-radius: 5px;
-    list-style: none;
-    padding: 10px 0;
-}
-
-nav ul li:hover .dropdown {
-    display: block;
-}
-
-nav ul li .dropdown li {
-    padding: 8px 20px;
-}
-
-nav ul li .dropdown li a {
-    color: black;
-}
-
-nav ul li .dropdown li a:hover {
-    color: green;
-}
-
-main {
-    padding: 10px;
-}
-
-article {
+#cardapio {
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-section {
+#cardapio section {
     width: 30%;
+    min-width: 250px;
     margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    background-color: white;
+    box-sizing: border-box;
 }
 
-img {
+#cardapio section img {
     width: 100%;
     height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
+#cardapio section h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#cardapio section p {
+    margin: 8px 0;
 }
 
 @media (max-width: 768px) {
-    header {
-        text-align: right;
-        font-size: medium;
-        justify-content: end;
-        left: 10px;
+    #cardapio section {
+        width: 95%;
     }
-    article {
+
+    #cardapio{
         display: block;
-    }
-    section {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .logo {
-        left: 20px;
-    }
-    section {
-        width: 85%;
-        padding: 20px;
     }
 }

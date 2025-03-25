@@ -3,71 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 3</title>
-    <link rel="stylesheet" href="atividade3.css">
+    <title>Cardápio</title>
 </head>
 <body>
-    <header>
-        <h1>Restaurante IFPR</h1>
-        <img src="logo.png" alt="Logo" class="logo">
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Menu</a>
-                <ul class="dropdown">
-                    <li><a href="#sopa">Sopas</a></li>
-                    <li><a href="#lasanha">Massas</a></li>
-                    <li><a href="#feijoada">Pratos típicos</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <article>
-            <section id="sopa de legumes">
-                <h2>Sopa de Legumes</h2>
-                <img src="sopa de legumes.jpg" alt="Sopa de Legumes">
-                <p>Descrição: Uma deliciosa combinação de legumes frescos cozidos lentamente, resultando em uma sopa nutritiva e reconfortante,
-                perfeita para dias mais frios.</p>
-                <p>R$ 20,00</p>
-            </section>
-            <section id="sopa de mandioca">
-                <h2>Sopa de Mandioca</h2>
-                <img src="sopa de mandioca.jpg" alt="Sopa de Mandioca">
-                <p>Descrição: Uma deliciosa e cremosa combinação de mandioca cozida, temperos frescos e um toque especial de carne desfiada
-                (ou legumes, se preferir).</p>
-                <p>R$ 25,00</p>
-            </section>
-            <section id="lasanha">
-                <h2>Lasanha</h2>
-                <img src="lasanha.jpg" alt="Lasanha">
-                <p>Descrição: Camadas de massa de trigo intercaladas com molho de carne, queijo derretido e molho bechamel,
-                assadas até ficarem douradas e irresistíveis.</p>
-                <p>R$ 40,00</p>
-            </section>
-            <section id="macarrão alho e óleo">
-                <h2>Macarrão Alho e Óleo</h2>
-                <img src="macarrãoalhoeóleo.jpg" alt="Macarrão Alho e Óleo">
-                <p>Descrição: Uma receita clássica e simples, mas repleta de sabor! Macarrão al dente envolvido em um molho de 
-                alho dourado e azeite de oliva, com um toque de pimenta e finalizado com ervas frescas.</p>
-                <p>R$ 15,00</p>
-            </section>
-            <section id="feijoada">
-                <h2>Feijoada</h2>
-                <img src="feijoada.webp" alt="Feijoada">
-                <p>Descrição: Prato tradicional brasileiro, composto por feijão preto, carnes variadas e arroz, servido com farofa,
-                couve e laranja, criando uma explosão de sabores autênticos.</p>
-                <p>R$ 35,00</p>
-            </section>
-            <section id="acarajé">
-                <h2>Acarajé</h2>
-                <img src="acarajé.jpg" alt="Acarajé">
-                <p>Descrição: Uma verdadeira iguaria da culinária baiana! Bolinho frito de feijão-fradinho, crocante por fora e macio por dentro, 
-                recheado com vatapá, caruru e camarões secos.</p>
-                <p>R$ 45,00</p>
-            </section>
-        </article>
-    </main>
-    <footer>© Restaurante IFPR 2025</footer>
+    <div id="cardapio"></div> <script>
+        const itensCardapio = [
+            {
+                nome: "Sopa de Legumes",
+                descricao: "Uma deliciosa combinação de legumes frescos cozidos lentamente...",
+                preco: "R$ 20,00",
+                imagem: "sopa de legumes.jpg"
+            },
+            {
+                nome: "Sopa de Mandioca",
+                descricao: "Uma deliciosa e cremosa combinação de mandioca cozida...",
+                preco: "R$ 25,00",
+                imagem: "sopa de mandioca.jpg"
+            },
+            {
+                nome: "Lasanha",
+                descricao: "Camadas de massa de trigo intercaladas com molho de carne...",
+                preco: "R$ 40,00",
+                imagem: "lasanha.jpg"
+            },
+            {
+                nome: "Macarrão Alho e Óleo",
+                descricao: "Uma receita clássica e simples, mas repleta de sabor!...",
+                preco: "R$ 15,00",
+                imagem: "macarrãoalhoeóleo.jpg"
+            },
+            {
+                nome: "Feijoada",
+                descricao: "Prato tradicional brasileiro, composto por feijão preto...",
+                preco: "R$ 35,00",
+                imagem: "feijoada.webp"
+            },
+            {
+                nome: "Acarajé",
+                descricao: "Uma verdadeira iguaria da culinária baiana! Bolinho frito de feijão-fradinho...",
+                preco: "R$ 45,00",
+                imagem: "acarajé.jpg"
+            },
+             {
+                nome: "Sopa de Legumes",
+                descricao: "Uma deliciosa combinação de legumes frescos cozidos lentamente...",
+                preco: "R$ 20,00",
+                imagem: "sopa de legumes.jpg"
+            },
+        ];
+
+        // Função para remover itens duplicados com base no nome
+        function removerDuplicatas(array) {
+            const nomesUnicos = []; // Array para armazenar os nomes únicos dos itens
+            return array.filter((item) => { // Filtra o array original
+                if (!nomesUnicos.includes(item.nome)) { // Verifica se o nome do item já está em nomesUnicos
+                    nomesUnicos.push(item.nome); // Adiciona o nome do item a nomesUnicos
+                    return true; // Mantém o item no array filtrado
+                }
+                return false; // Remove o item do array filtrado
+            });
+        }
+
+        // Remove os itens duplicados
+        const itensUnicos = removerDuplicatas(itensCardapio);
+
+        // Cria o HTML para exibir os itens únicos
+        let cardapioHTML = ""; // Inicializa a string que armazenará o HTML do cardápio
+        itensUnicos.forEach((item) => { // Itera sobre os itens únicos
+            cardapioHTML += `
+                <section>
+                    <h2>${item.nome}</h2>
+                    <img src="${item.imagem}" alt="${item.nome}">
+                    <p>Descrição: ${item.descricao}</p>
+                    <p>${item.preco}</p>
+                </section>
+            `; // Adiciona o HTML de cada item à string cardapioHTML
+        });
+
+        // Insere o HTML na div "cardapio"
+        document.getElementById("cardapio").innerHTML = cardapioHTML;
+    </script>
 </body>
 </html>
